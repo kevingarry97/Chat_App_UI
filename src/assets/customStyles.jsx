@@ -50,5 +50,9 @@ export const useStyles = makeStyles({
   },
   img_fluid: {
     width: '100%'
+  },
+  text_normal: {
+    fontWeight: 'normal',
+    fontSize: 22
   }
 }) 
