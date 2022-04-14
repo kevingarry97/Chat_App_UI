@@ -5,7 +5,7 @@ import AuthImage from '../assets/auth_image.svg';
 import { useStyles } from '../assets/customStyles';
 import auth from '../services/auth';
 
-const Login = () => {
+const Login = (props) => {
   const classes = useStyles();
   const [data, setData] = useState({email: '', password: ''});
   
@@ -16,7 +16,9 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await auth.login(data.email, data.password)
-    const { state } = this.props.location;
+    const { state } = props.location;
+
+    console.log('State ', state)
 
     window.location = state ? state.from.pathname : "/message";
   }
