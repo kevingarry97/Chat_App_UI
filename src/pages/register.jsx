@@ -37,7 +37,7 @@ const Register = () => {
       <Container maxWidth="sm" sx={{ backgroundColor: '#FFF', padding: '30px', paddingBottom: "4em"}}>
         <h1 style={{margin: 3, padding: 0}} className={classes.text_normal}>Sign Up with your Information</h1>
         <small className={classes.text_muted}>Already have an account? </small>
-        <small className={classes.text_muted}><Link to={"/register"}><b>Sign In</b></Link></small>
+        <small className={classes.text_muted}><Link to={"/auth"}><b>Sign In</b></Link></small>
         <form onSubmit={handleSubmit} className={classes.pt_5}>
           <label htmlFor=""><b>Username:</b></label>
           <TextField name='username' value={data.username} onChange={handleChange} fullWidth label="kevin123" margin="normal" />

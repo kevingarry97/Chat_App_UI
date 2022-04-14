@@ -1,4 +1,4 @@
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import ProtectedRoute from "./components/protectedRoutes";
 import Chats from "./pages/chats";
 import Confirm from "./pages/confirm";
@@ -9,9 +9,10 @@ function App() {
   return (
     <Switch>
       <ProtectedRoute path={'/message'} component={Chats} />
-      <Route path={'/auth/:id'} exact component={Confirm} />
-      <Route path={'/register'} exact component={Register} />
-      <Route path={'/auth'} exact component={Login} />
+      <Route path={'/auth/:id'} component={Confirm} />
+      <Route path={'/register'} component={Register} />
+      <Route path={'/auth'} component={Login} />
+      <Redirect from="/" exact to="/auth" />
     </Switch>
   );
 }
