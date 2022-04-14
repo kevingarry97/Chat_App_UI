@@ -2,6 +2,10 @@ import http from './httpService';
 
 const apiEndPoint = "https://server-message-app.herokuapp.com/api/user";
 
+export const usersList = () => {
+  return http.get(apiEndPoint);
+}
+
 export const createUser = (payload, upload) => {
   const fd = new FormData();
 
