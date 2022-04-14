@@ -23,11 +23,20 @@ export const useStyles = makeStyles({
   align_end: {
     alignItems: 'end'
   },
+  align_start: {
+    alignItems: 'start',
+    // backgroundColor: '#4E426D'
+  },
   justify_between: {
     justifyContent: 'space-around'
   },
   pt_5: {
     paddingTop: '45px'
+  },
+  p_5: {
+    paddingLeft: '10px',
+    paddingRight: '10px',
+    margin: '10px'
   },
   pb_5: {
     paddingBottom: '45px'
@@ -54,5 +63,27 @@ export const useStyles = makeStyles({
   text_normal: {
     fontWeight: 'normal',
     fontSize: 22
+  },
+  border_bottom: {
+    borderBottomColor: '#eeeeee',
+    borderBottomWidth: 1,
+    borderBottomStyle: 'solid'
+  },
+  form_control: {
+    display: 'block',
+    width: '98%',
+    height: 'calc(1.5em + .75rem + 2px)',
+    padding: '.375rem .75rem',
+    fontSize: '1rem',
+    fontWeight: 400,
+    lineHeight: 1.5,
+    color: '#495057',
+    backgroundColor: '#fff',
+    backgroundClip: 'padding-box',
+    border:' 1px solid #fff',
+    borderRadius: '5rem'
+  },
+  backgroud_light: {
+    backgroundColor: '#F5F7FB'
   }
 }) 
