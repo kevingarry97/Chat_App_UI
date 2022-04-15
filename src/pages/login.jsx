@@ -21,6 +21,7 @@ const Login = (props) => {
     console.log('State ', state)
 
     window.location = state ? state.from.pathname : "/message";
+    setData({email: '', password: ''})
   }
 
   return (
