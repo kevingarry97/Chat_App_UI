@@ -12,13 +12,22 @@ const Register = () => {
   const classes = useStyles();
   const [data, setData] = useState({username: '', email: '', password: '', role: ''});
   const [loading, setLoading] = useState(false);
-  const [upload, setUpload] = useState('')
+  const [upload, setUpload] = useState('');
+  const [view, setView] = useState('')
   
+console.log('Upload ', upload)
+
   const handleChange = ({target}) => {
     const reader = new FileReader();
     // eslint-disable-next-line no-cond-assign
     // console.log(target);
     if(target.name == "file") setUpload(target.files[0])
+    reader.onload = () => {
+      if(reader.readyState === 2) {
+        setView(reader.result)
+      }
+    }
+    reader.readAsDataURL(target.files[0]);
     setData({...data, [target.name]: target.value})
   }
 
@@ -87,9 +96,9 @@ const Register = () => {
                 <PhotoCamera />
               </IconButton>
             </label>
-            {/* {data.file && <div style={{paddingLeft: 10, paddingTop: 10}}>
-              <img src={data.file} width="100" height="100" alt="" />
-            </div>} */}
+            {view && <div style={{paddingLeft: 10, paddingTop: 10}}>
+              <img src={view} width="100" height="100" alt="" />
+            </div>}
             {/* <div className={classes.py_2} /> */}
             {/* <Link className={`${classes.decoration_0} ${classes.float_right}`} to={'/'}><small className={classes.text_muted}>Forgot password?</small></Link> */}
             <div className={classes.py_2} />
