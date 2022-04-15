@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { PhotoCamera } from '@mui/icons-material';
 import styled from '@emotion/styled';
 import { createUser } from '../services/user';
+import { toast } from 'react-toastify';
 
 const Register = () => {
   const classes = useStyles();
@@ -25,11 +26,16 @@ const Register = () => {
   
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    
-    console.log('Results ', data);
-    console.log('Uploads ', upload);
-    const result = await createUser(data, upload);
+    const res = await createUser(data, upload);
+    res.status == 200 && toast("Verify your email to activate account", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    })
   }
 
   return (

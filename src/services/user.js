@@ -1,6 +1,6 @@
 import http from './httpService';
 
-const apiEndPoint = "https://server-message-app.herokuapp.com/api/user";
+const apiEndPoint = "http://localhost:4000/api/user";
 
 export const usersList = () => {
   return http.get(apiEndPoint);

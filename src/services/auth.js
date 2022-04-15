@@ -2,7 +2,7 @@ import jwtDecode from "jwt-decode";
 import http from "./httpService";
 // import * as apiUrl from "../config.json"
 
-const apiEndPoint = "https://server-message-app.herokuapp.com/api/auth";
+const apiEndPoint = "http://localhost:4000/api/auth";
 const tokenKey = "token";
 
 http.setJwt(getJwt());
@@ -27,6 +27,10 @@ export function getCurrentUser() {
   } catch (ex) {
     return null;
   }
+}
+
+export const verifyUser = (token) => {
+  return http.get(apiEndPoint + '/verify/' + token);
 }
 
 export function getJwt() {
