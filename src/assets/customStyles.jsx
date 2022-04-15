@@ -83,7 +83,22 @@ export const useStyles = makeStyles({
     border:' 1px solid #fff',
     borderRadius: '5rem'
   },
+  border_5: {
+    borderRadius: '1.5em'
+  },
   backgroud_light: {
+    backgroundColor: '#F5F7FB',
+    borderRadius: 10
+  },
+  background_primary: {
+    backgroundColor: '#4E426D',
+    borderRadius: 10,
+    color: '#fff'
+  },
+  backgroud_lighter: {
     backgroundColor: '#F5F7FB'
+  },
+  pr_3: {
+    marginRight: 15
   }
 }) 

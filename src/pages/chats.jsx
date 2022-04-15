@@ -1,6 +1,7 @@
 import { Container, Grid } from "@mui/material";
 import React from "react";
 import { useStyles } from "../assets/customStyles";
+import MessageInput from "../components/messageInput";
 import MessageList from "../components/messageList";
 import SearchBox from "../components/searchBox";
 import UsersList from "../components/usersList";
@@ -20,8 +21,9 @@ const Chats = () => {
             </Grid>
           </Grid>
           <Grid item xs={8} marginTop={2} maxHeight>
-            <Grid maxWidth paddingX={3} paddingY={1} sx={{backgroundColor: '#fff', height: '117%'}}>
+            <Grid maxWidth paddingX={3} paddingY={1} sx={{backgroundColor: '#fff', height: '117%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
               <MessageList />
+              <MessageInput value={''} onChange={() => console.log('Working')} />
             </Grid>
           </Grid>
         </Grid>
