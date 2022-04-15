@@ -100,5 +100,16 @@ export const useStyles = makeStyles({
   },
   pr_3: {
     marginRight: 15
+  },
+  overlay: {
+    position: 'absolute',
+    backgroundColor: '#000',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100vh',
+    opacity: 0.7,
+    width: '100%',
+    zIndex: 1
   }
 }) 

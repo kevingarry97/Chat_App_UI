@@ -1,8 +1,6 @@
-import Lottie from 'lottie-react';
 import React, {useEffect, useState} from 'react';
-import { toast } from 'react-toastify';
 import { verifyUser } from '../services/auth';
-import Loading from '../assets/lf20_2plouhmo.json';
+import LoadingIndicator from '../components/loadingIndicator';
 
 const Confirm = ({match}) => {
   const [confirming, setConfirming] = useState(true); 
@@ -19,11 +17,7 @@ const Confirm = ({match}) => {
     })()
   }, [match.params]);
 
-  return (
-    <div>
-      {confirming ? <Lottie animationData={Loading} /> : <h1>Confirmed Email</h1>}
-    </div>
-  )
+  return <LoadingIndicator visible={confirming} />
 }
 
 export default Confirm;
