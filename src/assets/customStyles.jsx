@@ -33,6 +33,9 @@ export const useStyles = makeStyles({
   pt_5: {
     paddingTop: '45px'
   },
+  pl_2: {
+    paddingLeft: 10
+  },
   p_5: {
     paddingLeft: '10px',
     paddingRight: '10px',
@@ -97,6 +100,12 @@ export const useStyles = makeStyles({
   },
   backgroud_lighter: {
     backgroundColor: '#F5F7FB'
+  },
+  mr_3: {
+    paddingRight: 20
+  },
+  m_5: {
+    margin: "0px 0px 30px 0px"
   },
   pr_3: {
     marginRight: 15

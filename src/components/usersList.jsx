@@ -1,24 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react';
 import { useStyles } from '../assets/customStyles'
-import AuthImage from '../assets/auth_image.svg'
-import { usersList } from "../services/user";
+import moment from 'moment';
  
-const UsersList = () => {
+const UsersList = ({users: listUsers, selectUser, selectedUser}) => {
   const classes = useStyles();
-  const [listUsers, setListUsers] = useState([])
-  
-  useEffect(() => {
-    (async () => {
-      const { data } = await usersList();
-      setListUsers(data);
-      
-    })()
-  })
+
   return (
     <>
-      {listUsers.map((list, key) => (
+      {listUsers.data.map((list, key) => (
         // eslint-disable-next-line jsx-a11y/anchor-is-valid
-        <a href='#' key={key} className={`${classes.flex} ${classes.decoration_0} ${classes.flex_row} ${classes.justify_between} ${classes.border_bottom}`}>
+        <a href='#' onClick={() => selectUser(list)} key={key} className={`${classes.flex} ${classes.decoration_0} ${classes.flex_row} ${classes.justify_between} ${classes.border_bottom} ${selectedUser && selectedUser._id == list._id && classes.backgroud_lighter} ${classes.pr_3}`}>
           <div className={`${classes.flex} ${classes.align_center}`}>
             <img src={list.profileUrl} alt="" width={60} height={60} style={{margin: 8, borderRadius: '50%'}} />
             <div className=''>
@@ -26,7 +17,7 @@ const UsersList = () => {
               <h6 className={`${classes.text_muted}`} style={{margin: 5, padding: 0}}>{list.email}</h6>
             </div>
           </div>
-          <h5 className={classes.text_muted}>09:00</h5>
+          <h6 className={classes.text_muted}>{moment(list.createdAt).format('h:mm')}</h6>
         </a>
       ))}
     </>
