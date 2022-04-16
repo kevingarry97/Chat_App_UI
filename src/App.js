@@ -6,12 +6,14 @@ import Login from "./pages/login";
 import Register from "./pages/register";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Blogs from "./pages/blogs";
 
 function App() {
   return (
     <>
       <ToastContainer />
       <Switch>
+        <ProtectedRoute path={'/blog'} component={Blogs} />
         <ProtectedRoute path={'/message'} component={Chats} />
         <Route path={'/auth/:id'} component={Confirm} />
         <Route path={'/register'} component={Register} />

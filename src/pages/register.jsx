@@ -63,8 +63,8 @@ console.log('Upload ', upload)
       <div className={`${classes.flex} ${classes.pt_5} ${classes.pb_5} ${classes.h_100} ${classes.align_center} ${classes.justify_center}`}>
         <Container maxWidth="sm" sx={{ backgroundColor: '#FFF', padding: '30px', paddingBottom: "4em"}}>
           <h1 style={{margin: 3, padding: 0}} className={classes.text_normal}>Sign Up with your Information</h1>
-          <small className={classes.text_muted}>Already have an account? </small>
-          <small className={classes.text_muted}><Link to={"/auth"}><b>Sign In</b></Link></small>
+          <small className={classes.text_muted}>Want to go back? </small>
+          <small className={classes.text_muted}><Link to={"/message"}><b>return Home</b></Link></small>
           <form onSubmit={handleSubmit} className={classes.pt_5}>
             <label htmlFor=""><b>Username:</b></label>
             <TextField name='username' value={data.username} onChange={handleChange} fullWidth label="kevin123" margin="normal" />

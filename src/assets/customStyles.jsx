@@ -120,5 +120,8 @@ export const useStyles = makeStyles({
     opacity: 0.7,
     width: '100%',
     zIndex: 1
+  },
+  text_black: {
+    color: "#000"
   }
 }) 

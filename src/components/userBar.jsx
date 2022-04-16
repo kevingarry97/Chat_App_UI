@@ -3,10 +3,11 @@ import Button from '@mui/material/Button';
 import { useStyles } from '../assets/customStyles';
 import { Avatar, IconButton, Menu, MenuItem, Tooltip } from '@mui/material';
 import auth from '../services/auth';
+import { Link } from 'react-router-dom';
 
 const UserBar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const {email, profileUrl, username} = auth.getCurrentUser();
+  const {email, profileUrl, username, role} = auth.getCurrentUser();
   const classes = useStyles()
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -42,7 +43,21 @@ const UserBar = () => {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose}>Blogs</MenuItem>
+          <MenuItem>
+            <Link to={'/message'} className={`${classes.decoration_0} ${classes.text_black}`}>
+              Messages
+            </Link>
+          </MenuItem>
+          <MenuItem>
+            <Link to={'/blog'} className={`${classes.decoration_0} ${classes.text_black}`}>
+              Blogs
+            </Link>
+          </MenuItem>
+        {role != 'admin' && <MenuItem>
+          <Link to={'/register'} className={`${classes.decoration_0} ${classes.text_black}`}>
+            Create User
+          </Link>
+        </MenuItem>}
         <MenuItem onClick={handleOut}>Logout</MenuItem>
       </Menu>
     </div>
