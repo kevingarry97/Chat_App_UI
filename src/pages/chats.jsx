@@ -7,8 +7,8 @@ import SearchBox from "../components/searchBox";
 import UsersList from "../components/usersList";
 import auth from "../services/auth";
 import { getChats, sendChat } from "../services/chats";
-import { usersList } from "../services/user";
 import UserBar from '../components/userBar';
+import { getRoom } from "../services/room";
 
 const Chats = () => {
   const [query, setQuery] = useState('');
@@ -22,9 +22,9 @@ const Chats = () => {
   }
 
   const populateUsers = async () => {
-    const { data } = await usersList();
-    const users = data.filter((el) => el._id != auth.getCurrentUser()._id)
-    setListUsers(users);
+    const { data } = await getRoom();
+    // const users = data.filter((el) => el._id != auth.getCurrentUser()._id)
+    setListUsers(data);
   }
 
   const populateChats = async (user) => {
@@ -39,7 +39,7 @@ const Chats = () => {
 
   const handleMessage = async (message) => {
     const payload = {
-      user: selectedUser,
+      room: selectedUser._id,
       message
     };
 

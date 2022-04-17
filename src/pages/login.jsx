@@ -43,7 +43,7 @@ const Login = (props) => {
                   <small className={classes.text_muted}><b>START FOR FREE</b></small>
                   <h1 style={{margin: 0, padding: 0}}>Sign in with us.</h1>
                   {/* <small className={classes.text_muted}>Don't have an account? </small> */}
-                  <small className={classes.text_muted}><Link to={"/register"}><b>Sign Up</b></Link></small>
+                  {/* <small className={classes.text_muted}><Link to={"/register"}><b>Sign Up</b></Link></small> */}
                   <form onSubmit={handleSubmit} className={classes.pt_5}>
                     <label htmlFor=""><b>Email:</b></label>
                     <TextField name='email' value={data.email} onChange={handleChange} fullWidth label="name@mail.com" id="fullWidth" margin="normal" />
