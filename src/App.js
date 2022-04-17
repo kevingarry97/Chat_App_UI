@@ -7,6 +7,7 @@ import Register from "./pages/register";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Blogs from "./pages/blogs";
+import AdminRoute from "./components/adminRoute";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
         <ProtectedRoute path={'/blog'} component={Blogs} />
         <ProtectedRoute path={'/message'} component={Chats} />
         <Route path={'/auth/:id'} component={Confirm} />
-        <Route path={'/register'} component={Register} />
+        <AdminRoute path={'/register'} component={Register} />
         <Route path={'/auth'} component={Login} />
         <Redirect from="/" exact to="/auth" />
       </Switch>
