@@ -123,5 +123,8 @@ export const useStyles = makeStyles({
   },
   text_black: {
     color: "#000"
+  },
+  text_center: {
+    textAlign: 'center'
   }
 }) 

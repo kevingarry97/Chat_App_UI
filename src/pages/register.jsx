@@ -54,6 +54,16 @@ console.log('Upload ', upload)
 
       setData({username: '', email: '', password: '', role: ''});
       setUpload('');
+    } else {
+      toast("Try again later", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      })
     }
   }
 
