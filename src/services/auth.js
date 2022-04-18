@@ -33,6 +33,14 @@ export const verifyUser = (token) => {
   return http.get(apiEndPoint + '/verify/' + token);
 }
 
+export const requestReset = (email) => {
+  return http.post(apiEndPoint + '/requestReset', { email });
+}
+
+export const resetPassword = (payload) => {
+  return http.post(apiEndPoint + '/resetPassword', payload);
+}
+
 export function getJwt() {
   return localStorage.getItem("token");
 }
