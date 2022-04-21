@@ -37,7 +37,7 @@ const ResetPassword = ({match}) => {
 
     const res = await resetPassword(payload);
 
-    if(res.status == 200) {
+    if(res.status === 200) {
       setLoading(false);
       toast("Successfully Resetted", {
         position: "top-right",

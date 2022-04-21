@@ -21,7 +21,7 @@ console.log('Upload ', upload)
     const reader = new FileReader();
     // eslint-disable-next-line no-cond-assign
     // console.log(target);
-    if(target.name == "file") setUpload(target.files[0])
+    if(target.name === "file") setUpload(target.files[0])
     reader.onload = () => {
       if(reader.readyState === 2) {
         setView(reader.result)
@@ -40,7 +40,7 @@ console.log('Upload ', upload)
     setLoading(true);
     const res = await createUser(data, upload);
 
-    if(res.status == 200) {
+    if(res.status === 200) {
       setLoading(false);
       toast("Verify your email to activate account", {
         position: "top-right",
@@ -74,7 +74,7 @@ console.log('Upload ', upload)
         <Container maxWidth="sm" sx={{ backgroundColor: '#FFF', padding: '30px', paddingBottom: "4em"}}>
           <h1 style={{margin: 3, padding: 0}} className={classes.text_normal}>Sign Up with your Information</h1>
           <small className={classes.text_muted}>Want to go back? </small>
-          <small className={classes.text_muted}><Link to={"/message"}><b>return Home</b></Link></small>
+          <small className={classes.text_muted}><Link to={"/message"}><b>Back</b></Link></small>
           <form onSubmit={handleSubmit} className={classes.pt_5}>
             <label htmlFor=""><b>Username:</b></label>
             <TextField name='username' value={data.username} onChange={handleChange} fullWidth label="kevin123" margin="normal" />
