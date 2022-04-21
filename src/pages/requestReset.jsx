@@ -20,7 +20,7 @@ const RequestReset = () => {
     setLoading(true);
 
     const res = await requestReset(email);
-    if(res.status == 200) {
+    if(res.status === 200) {
       setLoading(false);
       toast("Verify your email to check the request", {
         position: "top-right",

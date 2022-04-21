@@ -7,7 +7,6 @@ import Register from "./pages/register";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Blogs from "./pages/blogs";
-import AdminRoute from "./components/adminRoute";
 import RequestReset from "./pages/requestReset";
 import ResetPassword from "./pages/resetPassword";
 
@@ -21,7 +20,7 @@ function App() {
         <Route path={'/request'} exact component={RequestReset} />
         <ProtectedRoute path={'/blog'} component={Blogs} />
         <ProtectedRoute path={'/message'} component={Chats} />
-        <AdminRoute path={'/register'} component={Register} />
+        <Route path={'/register'} component={Register} />
         <Route path={'/auth'} component={Login} />
         <Redirect from="/" exact to="/auth" />
       </Switch>
