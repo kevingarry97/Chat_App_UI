@@ -5,7 +5,6 @@ import MessageInput from "../components/messageInput";
 import MessageList from "../components/messageList";
 import SearchBox from "../components/searchBox";
 import UsersList from "../components/usersList";
-import auth from "../services/auth";
 import { getChats, sendChat } from "../services/chats";
 import UserBar from '../components/userBar';
 import { getRoom } from "../services/room";
@@ -58,7 +57,7 @@ const Chats = () => {
 
     if(query)
       filters = listUsers.filter(user => 
-        user.username.toLowerCase().startsWith(query.toLowerCase())  
+        user.room.toLowerCase().startsWith(query.toLowerCase())  
       )
 
     return { totalCount: filters.length, data: filters }

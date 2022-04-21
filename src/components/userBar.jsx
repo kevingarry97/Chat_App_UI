@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import { useStyles } from '../assets/customStyles';
 import { Avatar, IconButton, Menu, MenuItem, Tooltip } from '@mui/material';
 import auth from '../services/auth';
@@ -53,7 +52,7 @@ const UserBar = () => {
               Blogs
             </Link>
           </MenuItem>
-        {role != 'admin' && <MenuItem>
+        {role !== 'admin' && <MenuItem>
           <Link to={'/register'} className={`${classes.decoration_0} ${classes.text_black}`}>
             Create User
           </Link>

@@ -21,13 +21,15 @@ console.log('Upload ', upload)
     const reader = new FileReader();
     // eslint-disable-next-line no-cond-assign
     // console.log(target);
-    if(target.name === "file") setUpload(target.files[0])
-    reader.onload = () => {
-      if(reader.readyState === 2) {
-        setView(reader.result)
+    if(target.name === "file") {
+      setUpload(target.files[0])
+      reader.onload = () => {
+        if(reader.readyState === 2) {
+          setView(reader.result)
+        }
       }
+      reader.readAsDataURL(target.files[0]);
     }
-    reader.readAsDataURL(target.files[0]);
     setData({...data, [target.name]: target.value})
   }
 
@@ -54,6 +56,7 @@ console.log('Upload ', upload)
 
       setData({username: '', email: '', password: '', role: ''});
       setUpload('');
+      setView('');
     } else {
       toast("Try again later", {
         position: "top-right",
