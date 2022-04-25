@@ -21,7 +21,7 @@ const Login = (props) => {
   
       console.log('State ', state)
   
-      window.location = state ? state.from.pathname : "/message";
+      window.location = state ? state.from.pathname : "/blog";
       setData({email: '', password: ''})
 
     } catch(e) {
@@ -60,9 +60,9 @@ const Login = (props) => {
                   <small className={classes.text_muted}><Link to={"/register"}><b>Sign Up</b></Link></small>
                   <form onSubmit={handleSubmit} className={classes.pt_5}>
                     <label htmlFor=""><b>Email:</b></label>
-                    <TextField name='email' value={data.email} onChange={handleChange} fullWidth label="name@mail.com" id="fullWidth" margin="normal" />
+                    <TextField name='email' value={data.email} onChange={handleChange} fullWidth label="name@mail.com" margin="normal" />
                     <label htmlFor=""><b>Password:</b></label>
-                    <TextField type={"password"} name='password' value={data.password} onChange={handleChange} fullWidth label="6+ character, 1 Capital letter" id="fullWidth" margin="normal" />
+                    <TextField type={"password"} name='password' value={data.password} onChange={handleChange} fullWidth label="6+ character, 1 Capital letter" margin="normal" />
                     {/* <div className={classes.py_2} /> */}
                     <Link className={`${classes.decoration_0} ${classes.float_right}`} to={'/request'}><small className={classes.text_muted}>Forgot password?</small></Link>
                     <div className={classes.py_2} />

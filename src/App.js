@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Blogs from "./pages/blogs";
 import RequestReset from "./pages/requestReset";
 import ResetPassword from "./pages/resetPassword";
+import Profile from "./pages/profile";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path={'/auth/:id'} component={Confirm} />
         <Route path={'/request'} exact component={RequestReset} />
         <ProtectedRoute path={'/blog'} component={Blogs} />
+        <ProtectedRoute path={'/profile'} component={Profile} />
         <ProtectedRoute path={'/message'} component={Chats} />
         <Route path={'/register'} component={Register} />
         <Route path={'/auth'} component={Login} />

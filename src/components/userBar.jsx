@@ -1,17 +1,23 @@
-import * as React from 'react';
+import React, {useEffect, useState} from 'react';
 import { useStyles } from '../assets/customStyles';
 import { Avatar, IconButton, Menu, MenuItem, Tooltip } from '@mui/material';
-import auth from '../services/auth';
+import auth, { getUser } from '../services/auth';
 import { Link } from 'react-router-dom';
 
 const UserBar = () => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const {email, profileUrl, username, role} = auth.getCurrentUser();
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [user, setuser] = useState('');
   const classes = useStyles()
   const open = Boolean(anchorEl);
+  
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+  
+  const populateUser = async () => {
+    const {data} = await getUser();
+    setuser(data);
+  }
 
   const handleOut = () => {
     auth.logout();
@@ -21,15 +27,19 @@ const UserBar = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
+  
+  useEffect(() => {
+    populateUser();
+  }, [])
+  
   return (
     <div className={`${classes.flex} ${classes.flex_column} ${classes.align_end} ${classes.m_5}`}>
       <Tooltip title="Open settings">
         <IconButton onClick={handleClick} sx={{ p: 0 }}>
-          <Avatar alt="Remy Sharp" src={profileUrl} />
+          <Avatar alt="Remy Sharp" src={user.profileUrl} />
           <div className={`${classes.flex} ${classes.flex_column} ${classes.align_start} ${classes.pl_2}`}>
-            <h6 style={{margin: 0, padding: 0}}>{username}</h6>
-            <h6 style={{margin: 0, padding: 0}}><small>{email}</small></h6>
+            <h6 style={{margin: 0, padding: 0}}>{user.username}</h6>
+            <h6 style={{margin: 0, padding: 0}}><small>{user.email}</small></h6>
           </div>
         </IconButton>
       </Tooltip>
@@ -43,6 +53,11 @@ const UserBar = () => {
         }}
       >
           <MenuItem>
+            <Link to={'/profile'} className={`${classes.decoration_0} ${classes.text_black}`}>
+              Profile
+            </Link>
+          </MenuItem>
+          <MenuItem>
             <Link to={'/message'} className={`${classes.decoration_0} ${classes.text_black}`}>
               Messages
             </Link>
@@ -52,7 +67,7 @@ const UserBar = () => {
               Blogs
             </Link>
           </MenuItem>
-        {role !== 'admin' && <MenuItem>
+        {user.role !== 'admin' && <MenuItem>
           <Link to={'/register'} className={`${classes.decoration_0} ${classes.text_black}`}>
             Create User
           </Link>

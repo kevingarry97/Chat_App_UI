@@ -7,6 +7,7 @@ import styled from '@emotion/styled';
 import { createUser } from '../services/user';
 import { toast } from 'react-toastify';
 import LoadingIndicator from '../components/loadingIndicator';
+import auth from '../services/auth';
 
 const Register = () => {
   const classes = useStyles();
@@ -14,8 +15,6 @@ const Register = () => {
   const [loading, setLoading] = useState(false);
   const [upload, setUpload] = useState('');
   const [view, setView] = useState('')
-  
-console.log('Upload ', upload)
 
   const handleChange = ({target}) => {
     const reader = new FileReader();
@@ -40,7 +39,7 @@ console.log('Upload ', upload)
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    const res = await createUser(data, upload);
+    const res = await createUser({...data, role: data.role === '' && 'user'}, upload);
 
     if(res.status === 200) {
       setLoading(false);
@@ -83,22 +82,26 @@ console.log('Upload ', upload)
             <TextField name='username' value={data.username} onChange={handleChange} fullWidth label="kevin123" margin="normal" />
             <label htmlFor=""><b>Email:</b></label>
             <TextField name='email' type={'email'} onChange={handleChange} value={data.email} fullWidth label="name@mail.com" margin="normal" />
-            <label htmlFor=""><b>User Role:</b></label>
-            <FormControl fullWidth margin="normal">
-              <InputLabel id="demo-simple-select-label">Choose Role:</InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={data.role}
-                  name="role"
-                  onChange={handleChange}
-                  label="Age"
-                >
-                  {['moderator', 'user'].map((item, key) => (
-                    <MenuItem value={item} key={key}>{item}</MenuItem>
-                  ))}
-                </Select>
-            </FormControl>
+            {auth && auth.getCurrentUser()?.role === 'admin' &&
+              <>
+                <label htmlFor=""><b>User Role:</b></label>
+                <FormControl fullWidth margin="normal">
+                  <InputLabel id="demo-simple-select-label">Choose Role:</InputLabel>
+                    <Select
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      value={data.role}
+                      name="role"
+                      onChange={handleChange}
+                      label="Age"
+                    >
+                      {['moderator', 'user'].map((item, key) => (
+                        <MenuItem value={item} key={key}>{item}</MenuItem>
+                      ))}
+                    </Select>
+                </FormControl>
+              </>
+            }
             <label htmlFor=""><b>Password:</b></label>
             <TextField type={'password'} name='password' value={data.password} onChange={handleChange} fullWidth label="6+ character, 1 Capital letter" id="fullWidth" margin="normal" />
             <label htmlFor="icon-button-file">
