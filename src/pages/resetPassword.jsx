@@ -65,32 +65,7 @@ const ResetPassword = ({match}) => {
   }
 
   return (
-    <>
-      <LoadingIndicator visible={loading} />
-      <div className={`${classes.flex} ${classes.pt_5} ${classes.pb_5} ${classes.h_100} ${classes.align_center} ${classes.justify_center}`}>
-        <Container maxWidth="md" sx={{ backgroundColor: '#FFF', padding: '30px', paddingBottom: "4em"}}>
-          <h1 className={classes.text_center}>Reset Password ?</h1>
-          <p className={`${classes.text_center} ${classes.text_muted}`}><small>No Worries, we will send you a rest instructioin on your Email</small></p>
-          <Container maxWidth="sm">
-            <form onSubmit={handleSubmit} className={classes.pt_5}>
-              <label htmlFor=""><b>Password:</b></label>
-              <TextField type={"password"} name='password' value={data.password} onChange={handleChange} fullWidth label="6+ character, 1 Capital letter" id="fullWidth" margin="normal" />
-              <label htmlFor=""><b>Confirm Password:</b></label>
-              <TextField type={"password"} name='confirm' value={data.confirm} onChange={handleChange} fullWidth label="6+ character, 1 Capital letter" id="fullWidth" margin="normal" />
-              
-              <Button variant="contained" type='submit' color="primary" size="large" sx={{marginTop: '30px'}} fullWidth>
-                Reset Now
-              </Button>
-            </form>
-            <h6 className={classes.text_center}>
-              <Link className={`${classes.decoration_0}`} to={'/request'}>
-                Re-type Email
-              </Link>
-            </h6>
-          </Container>
-        </Container>
-      </div>
-    </>
+    <h1>Reset Password</h1>
   )
 }
 

@@ -48,29 +48,7 @@ const RequestReset = () => {
   }
 
   return (
-    <>
-      <LoadingIndicator visible={loading} />
-      <div className={`${classes.flex} ${classes.pt_5} ${classes.pb_5} ${classes.h_100} ${classes.align_center} ${classes.justify_center}`}>
-        <Container maxWidth="md" sx={{ backgroundColor: '#FFF', padding: '30px', paddingBottom: "4em"}}>
-          <h1 className={classes.text_center}>Forgot Password ?</h1>
-          <p className={`${classes.text_center} ${classes.text_muted}`}><small>No Worries, we will send you a rest instructioin on your Email</small></p>
-          <Container maxWidth="sm">
-            <form onSubmit={handleSubmit} className={classes.pt_5}>
-              <label htmlFor=""><b>Email:</b></label>
-              <TextField type={'email'} onChange={handleChange} value={email} fullWidth label="name@mail.com" margin="normal" />
-              <Button variant="contained" type='submit' color="primary" size="large" sx={{marginTop: '30px'}} fullWidth>
-                Reset Password
-              </Button>
-            </form>
-            <h6 className={classes.text_center}>
-              <Link className={`${classes.decoration_0}`} to={'/auth'}>
-                Back to login
-              </Link>
-            </h6>
-          </Container>
-        </Container>
-      </div>
-    </>
+    <h1>Requests Password</h1>
   )
 }
 

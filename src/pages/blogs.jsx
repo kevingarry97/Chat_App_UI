@@ -30,22 +30,7 @@ const Blogs = (props) => {
   }, [])
 
   return (
-    <>
-      <div className={`${classes.flex} ${classes.flex_column} ${classes.pt_5} ${classes.pb_5} ${classes.h_100} ${classes.align_center} ${classes.justify_center}`}>
-        <Container maxWidth="lg">
-          <UserBar />
-          <div style={{ backgroundColor: '#FFF', padding: '30px', paddingBottom: "4em"}}>
-            <DefaultEditor value={html} onChange={onChange} />
-            <Button variant="contained" size="large" sx={{marginTop: 2}} onClick={handleUpdate}>
-              <b>
-                Update
-              </b>
-            </Button>
-            {/* <button onClick={() => console.log('HHH ', html)}>Check</button> */}
-          </div>
-        </Container>
-      </div>
-    </>
+    <h1>Blogs</h1>
   )
 }
 
