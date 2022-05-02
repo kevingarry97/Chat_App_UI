@@ -1,0 +1,32 @@
+.bg_img {
+  background-image: url('./bg_img.svg');
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.bg-light {
+  background-color: #F3F8FB !important;
+}
+.btn-success {
+  background-color: #20BEAD !important;
+  border-color: #20BEAD !important;
+}
+.border-bottom {
+  border-radius: 0px !important;
+  border-bottom: 1px solid #ECECEC !important;
+}
+.col-md-6 {
+  flex: 1 !important;
+}
+.bottom-content {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  background-color: #F7FAFB !important;
+  width: 100%;
+}
