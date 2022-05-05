@@ -79,14 +79,14 @@ const Register = () => {
           <form className='my-5'>
             <div className="row mb-4">
               <div className="form-group col-md-6">
-                <input type="text" placeholder='Email' className="form-control border-0 border-bottom" />
+                <input type="text" placeholder='First name' className="form-control border-0 border-bottom" />
               </div>
               <div className="form-group col-md-6">
-                <input type="text" placeholder='Email' className="form-control border-0 border-bottom" />
+                <input type="text" placeholder='Last name' className="form-control border-0 border-bottom" />
               </div>
             </div>
             <div className="form-group mb-5">
-              <input type="password" placeholder='Password' className="form-control border-0 border-bottom" />
+              <input type="email" placeholder='Email' className="form-control border-0 border-bottom" />
             </div>
             <div className="form-group mb-5">
               <input type="password" placeholder='Password' className="form-control border-0 border-bottom" />
