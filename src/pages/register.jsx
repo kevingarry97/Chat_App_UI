@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { Button, Container, TextField, IconButton, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 import { useStyles } from '../assets/customStyles';
 import { Link } from 'react-router-dom';
-import { PhotoCamera } from '@mui/icons-material';
 import styled from '@emotion/styled';
 import { createUser } from '../services/user';
 import { toast } from 'react-toastify';
 import LoadingIndicator from '../components/loadingIndicator';
 import auth from '../services/auth';
+import AuthLayout from '../layout/authLayout';
 
 const Register = () => {
   const classes = useStyles();
@@ -70,7 +70,33 @@ const Register = () => {
   }
 
   return (
-    <h1>Register</h1>
+    <AuthLayout>
+      <div className="card border-0 mx-4">
+        <div className="card-body mt-5">
+          <small className='text-muted'><b>START FOR FREE</b></small>
+          <h3 className='mt-2'>Create New Account<b>.</b></h3>
+          <small className='text-muted'>Already a Member? <Link to="/">Sign In</Link></small>
+          <form className='my-5'>
+            <div className="row mb-4">
+              <div className="form-group col-md-6">
+                <input type="text" placeholder='Email' className="form-control border-0 border-bottom" />
+              </div>
+              <div className="form-group col-md-6">
+                <input type="text" placeholder='Email' className="form-control border-0 border-bottom" />
+              </div>
+            </div>
+            <div className="form-group mb-5">
+              <input type="password" placeholder='Password' className="form-control border-0 border-bottom" />
+            </div>
+            <div className="form-group mb-5">
+              <input type="password" placeholder='Password' className="form-control border-0 border-bottom" />
+            </div>
+            <button className='btn btn-success btn-block rounded-pill py-2 mt-5'> <b>Let's Go</b></button>
+          </form>
+        </div>
+      </div>
+          
+    </AuthLayout>
   )
 }
 
