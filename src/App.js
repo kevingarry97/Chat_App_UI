@@ -21,7 +21,7 @@ function App() {
         <Route path={'/request'} exact component={RequestReset} />
         <ProtectedRoute path={'/blog'} component={Blogs} />
         <ProtectedRoute path={'/profile'} component={Profile} />
-        <ProtectedRoute path={'/message'} component={Chats} />
+        <Route path={'/message'} component={Chats} />
         <Route path={'/register'} component={Register} />
         <Route path={'/auth'} component={Login} />
         <Redirect from="/" exact to="/auth" />
